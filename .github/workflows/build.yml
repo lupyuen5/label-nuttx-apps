@@ -114,7 +114,8 @@ jobs:
 
   # Select the Linux Builds based on PR Arch Label
   Linux-Arch:
-    uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    #### uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    uses: lupyuen5/label-nuttx-apps/.github/workflows/arch.yml@master ####
     needs: Fetch-Source
     with:
       os: Linux
@@ -122,7 +123,11 @@ jobs:
         [
           "arm-01", "other", "risc-v-01", "sim-01", "xtensa-01",
           "arm-02", "risc-v-02", "sim-02", "xtensa-02",
-          "arm-03", "arm-04", "arm-05", "arm-06", "arm-07", "arm-08", "arm-09", "arm-10", "arm-11", "arm-12", "arm-13"
+          "arm-03", "risc-v-03",
+          "arm-04", "risc-v-04",
+          "arm-05", "risc-v-05",
+          "arm-06", "risc-v-06",
+          "arm-07", "arm-08", "arm-09", "arm-10", "arm-11", "arm-12", "arm-13", "arm-14"
         ]
 
   # Run the selected Linux Builds
@@ -188,7 +193,8 @@ jobs:
 
   # Select the macOS Builds based on PR Arch Label
   macOS-Arch:
-    uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    #### uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    uses: lupyuen5/label-nuttx-apps/.github/workflows/arch.yml@master ####
     needs: Fetch-Source
     with:
       os: Linux
@@ -248,7 +254,8 @@ jobs:
 
   # Select the msys2 Builds based on PR Arch Label
   msys2-Arch:
-    uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    #### uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    uses: lupyuen5/label-nuttx-apps/.github/workflows/arch.yml@master ####
     needs: Fetch-Source
     with:
       os: Linux
