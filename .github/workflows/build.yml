@@ -63,13 +63,13 @@ jobs:
             # Determine the repo and leave that unset to use the normal checkout behavior
             # of using the merge commit instead of HEAD
             case $GITHUB_REPOSITORY in
-              "apache/nuttx")
+              "lupyuen5/label-nuttx")
                 # OS
                 echo "Triggered by change in OS"
                 APPS_REF=$REF_NAME
                 ;;
 
-              "apache/nuttx-apps" )
+              "lupyuen5/label-nuttx-apps" )
                 # APPS
                 OS_REF=$REF_NAME
                 echo "Triggered by change in APPS"
@@ -87,7 +87,7 @@ jobs:
       - name: Checkout nuttx repo
         uses: actions/checkout@v4
         with:
-          repository: apache/nuttx
+          repository: lupyuen5/label-nuttx
           ref: ${{ steps.gittargets.outputs.os_ref }}
           path: sources/nuttx
           fetch-depth: 1
@@ -97,7 +97,7 @@ jobs:
       - name: Checkout apps repo
         uses: actions/checkout@v4
         with:
-          repository: apache/nuttx-apps
+          repository: lupyuen5/label-nuttx-apps
           ref: ${{ steps.gittargets.outputs.apps_ref }}
           path: sources/apps
           fetch-depth: 1
@@ -113,7 +113,7 @@ jobs:
 
   # Select the Linux Builds based on PR Arch Label
   Linux-Arch:
-    uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    uses: lupyuen5/label-nuttx-apps/.github/workflows/arch.yml@master
     needs: Fetch-Source
     with:
       os: Linux
@@ -191,7 +191,7 @@ jobs:
 
   # Select the macOS Builds based on PR Arch Label
   macOS-Arch:
-    uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    uses: lupyuen5/label-nuttx-apps/.github/workflows/arch.yml@master
     needs: Fetch-Source
     with:
       os: macOS
@@ -251,7 +251,7 @@ jobs:
 
   # Select the msys2 Builds based on PR Arch Label
   msys2-Arch:
-    uses: apache/nuttx-apps/.github/workflows/arch.yml@master
+    uses: lupyuen5/label-nuttx-apps/.github/workflows/arch.yml@master
     needs: Fetch-Source
     with:
       os: msys2
